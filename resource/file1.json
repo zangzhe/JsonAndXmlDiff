@@ -1,0 +1,6 @@
+{"format":"example","content":[{"align":"center","depth":0,"list":false,"content":[{"style":{"underline":1,"bold":2,"size":20,"italic":2,"color":"FFFFFF","fontFamily":"Arial"},"content":"And please, feel free to send us your feedback and comments to "},{"style":{"underline":1,"bold":2,"size":20,"italic":2,"color":"4DC3FF","fontFamily":"Arial"},"content":"hello world"},{"style":{"underline":1,"bold":2,"size":20,"italic":2,"color":"FFFFFF","fontFamily":"Arial"},"content":", or just by clicking on the "},{"style":{"underline":1,"bold":2,"size":20,"italic":2,"color":"4DC3FF","fontFamily":"Arial"},"content":"feedback"}],"ordered":false}],"version":3}
+
+{"format":"事例","content":[{"align":"center","depth":0,"list":false,"内容":[{"style":{"underline":1,"bold":2,"size":20,"italic":2,"color":"FFFFFF","fontFamily":"Arial"},"content":"And please, feel free to send us your feedback and comments to "},{"样式":{"underline":1,"bold":2,"size":20,"italic":2,"color":"4DC3FF","fontFamily":"Arial"},"content":"你好 世界"},{"style":{"underline":1,"bold":2,"大小":20,"italic":2,"color":"FFFFFF","fontFamily":"Arial"},"content":", or just by clicking on the "},{"style":{"下划线":1,"bold":2,"size":20,"italic":2,"colors":"4DC3FF","fontFamily":"Arial"},"content":"feedback"}],"ordered":false}],"version":4}
+not a json
+
+{"format":"百度"}

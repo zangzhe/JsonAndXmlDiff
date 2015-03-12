@@ -1,2 +1,20 @@
-# JsonAndXmlDiff
-Json and Xml file diff parser
+## run diff
+php ./bin/diff.php -t json -f 'resource/file1.json resource/file2.json resource/file3.json' -o outFile
+
+## run unitest
+cd ./unitest
+phpunit UtilsTest.php 
+phpunit JsonFileReaderTest.php 
+phpunit XmlFileReaderTest.php
+
+## Changelog
+__v0.0.3[2015-03-02]__
+* 修复 patchset 3 中的不规范代码和结构
+
+__v0.0.2[2015-01-30]__
+* 代码重构，提高扩展性，支持不同数量文件、不同类型文件的 diff
+* 修复 patchset 2 中的个别冗余和不规范代码
+
+__v0.0.1[2014-12-22]__
+* diff 工具第一个版本
+

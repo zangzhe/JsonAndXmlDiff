@@ -4,10 +4,12 @@
  * @author zangzhe
  */
 
-require_once dirname(__FILE__) . '/JsonFileReader.php';
-require_once dirname(__FILE__) . '/XmlFileReader.php';
+$utilsDir = dirname(__FILE__);
 
-const G_VERSION = '0.0.3';
+require_once $utilsDir . '/JsonFileReader.php';
+require_once $utilsDir . '/XmlFileReader.php';
+
+const G_VERSION = '0.0.4';
 
 
 // 设置系统错误信息自定义捕获处理函数为 customError
@@ -83,7 +85,7 @@ class Utils{
             if (!array_key_exists($key, $options)){
                 $wrongMsg = 'Invalid arguments, pls check input.' . PHP_EOL;
                 echo $wrongMsg;
-                echo Utils::showHelp();
+                echo self::showHelp();
                 return -2;
             }
         }
@@ -115,13 +117,14 @@ class Utils{
                     }
                     break;
                 default:
+                    self::printError('invalid option ' . $key);
                     break;
             }
         }
 
         if ('' !== $wrongMsg) {
             echo 'Invalid ' . $wrongMsg . ' argument, pls check input' . PHP_EOL;
-            echo Utils::showHelp();
+            echo self::showHelp();
             return -3;
         }
         return 0;

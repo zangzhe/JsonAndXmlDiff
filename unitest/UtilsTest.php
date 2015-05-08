@@ -4,10 +4,12 @@
 * @author zangzhe
 */
 
-require_once dirname(__FILE__) . '/../lib/JsonFileReader.php';
-require_once dirname(__FILE__) . '/../lib/XmlFileReader.php';
-require_once dirname(__FILE__) . '/../lib/utils.php';
-require_once dirname(__FILE__) . '/../lib/Diff.php';
+$UtilesTestDir = dirname(__FILE__);
+
+require_once $UtilesTestDir . '/../lib/JsonFileReader.php';
+require_once $UtilesTestDir . '/../lib/XmlFileReader.php';
+require_once $UtilesTestDir . '/../lib/utils.php';
+require_once $UtilesTestDir . '/../lib/DiffTool.php';
 
 /**
 * 进行工具函数单测的类
@@ -33,9 +35,20 @@ class UtilesTest extends PHPUnit_Framework_TestCase {
     
     /**
      * utils 函数 check_input 单元测试 
+     * @condition case 1: 输入缺少选项
+     * @expect    case 1: 异常输出相匹配，并返回错误码 -2
+     * @condition case 2: 输入错误 -t 选项值
+     * @expect    case 2: 返回错误码 -3
+     * @condition case 3: 输入空选项
+     * @expect    case 3: 返回错误码 -3
+     * @condition case 4: 输入错误 -e 选项值
+     * @expect    case 4: 返回错误码 -3
+     * @condition case 5: 输入正确选项
+     * @expect    case 5: 返回 0 
     */
     public function testCheckInput() {
 
+        // case 1
         $options = array( 
             't' => 'json',
             'f' => 'firstFile secondFile',
@@ -43,24 +56,27 @@ class UtilesTest extends PHPUnit_Framework_TestCase {
         $outputRegex = '.*Invalid arguments, pls check input.*';
         $this->expectOutputRegex('/' . $outputRegex . '/');
         $ret = Utils::checkInput($options);
-        $this->assertEquals(-2, $ret);  
+        $this->assertEquals(-2, $ret, 'bad option not return -2');  
 
+        // case 2
         $options = array( 
             't' => 'notype',
             'f' => 'firstFile secondFile',
             'o' => 'out',
         );
         $ret = Utils::checkInput($options);
-        $this->assertEquals(-3, $ret);    
+        $this->assertEquals(-3, $ret, 'bad -t option value not return -3');    
         
+        // case 3
         $options = array( 
             't' => 'json',
             'f' => '',
             'o' => 'out',
         );
         $ret = Utils::checkInput($options);
-        $this->assertEquals(-3, $ret);    
+        $this->assertEquals(-3, $ret, 'null option value not return -3');    
 
+        // case 4
         $options = array( 
             't' => 'json',
             'f' => 'firstFile secondFile',
@@ -68,8 +84,9 @@ class UtilesTest extends PHPUnit_Framework_TestCase {
             'e' => 'notype',
         );
         $ret = Utils::checkInput($options);
-        $this->assertEquals(-3, $ret);  
+        $this->assertEquals(-3, $ret, 'bad -e option value not return -3');  
 
+        // case 5
         $options = array( 
             't' => 'json',
             'f' => 'firstFile secondFile',
@@ -77,28 +94,19 @@ class UtilesTest extends PHPUnit_Framework_TestCase {
             'e' => 'gbk',
         );
         $ret = Utils::checkInput($options);
-        $this->assertEquals(0, $ret);            
+        $this->assertEquals(0, $ret, 'good option not return 0');            
 
     }
 
-    // /**
-    //  * utils 函数 parse_array 单元测试 
-    // */
-    // public function testParseArray() {
-
-    //     $arrTest = json_decode("{\"format\":\"example\"}", true);
-    //     $ret = parse_array($arrTest);
-    //     $this->assertTrue(is_array($ret));
-
-    // }
-
     /**
      * utils 函数 diff 单元测试 
+     * @condition 输入 reader
+     * @expect    函数返回值为 0
     */
     public function testDiff() {
         $diff = new DiffTool();
         $ret = $diff->diff($this->reader);
-        $this->assertEquals(0, $ret);            
+        $this->assertEquals(0, $ret, 'diff method not return 0');            
 
     }
     

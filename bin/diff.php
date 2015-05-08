@@ -4,10 +4,12 @@
  * @author zangzhe
  */
 
-require_once dirname(__FILE__) . '/../lib/utils.php';
-require_once dirname(__FILE__) . '/../lib/Diff.php';
-require_once dirname(__FILE__) . '/../lib/JsonFileReader.php';
-require_once dirname(__FILE__) . '/../lib/XmlFileReader.php';
+$diffDir = dirname(__FILE__);
+
+require_once $diffDir . '/../lib/utils.php';
+require_once $diffDir . '/../lib/DiffTool.php';
+require_once $diffDir . '/../lib/JsonFileReader.php';
+require_once $diffDir . '/../lib/XmlFileReader.php';
 
 // 校验输入参数
 $g_options = getopt('t:f:o:e:hv');

@@ -4,8 +4,10 @@
  * @author zangzhe
  */
 
-require_once dirname(__FILE__) . '/utils.php';
-require_once dirname(__FILE__) . '/FileReader.php';
+$XmlFileReaderDir = dirname(__FILE__);
+
+require_once $XmlFileReaderDir . '/utils.php';
+require_once $XmlFileReaderDir . '/FileReader.php';
 
 /**
  * 读取和解析 xml 格式文件的类

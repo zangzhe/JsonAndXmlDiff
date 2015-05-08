@@ -4,7 +4,9 @@
  * @author zangzhe
  */
 
-require_once dirname(__FILE__) . '/utils.php';
+$FileReaderDir = dirname(__FILE__);
+
+require_once $FileReaderDir . '/utils.php';
 
 /**
  * 读取和解析文件的基类

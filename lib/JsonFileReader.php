@@ -4,8 +4,10 @@
  * @author zangzhe
  */
 
-require_once dirname(__FILE__) . '/utils.php';
-require_once dirname(__FILE__) . '/FileReader.php';
+$JsonFileReaderDir = dirname(__FILE__);
+
+require_once $JsonFileReaderDir . '/utils.php';
+require_once $JsonFileReaderDir . '/FileReader.php';
 
 /**
  * 读取和解析 json 格式数据的类
